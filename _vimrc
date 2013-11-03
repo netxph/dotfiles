@@ -1,18 +1,14 @@
 set nocompatible
 
-execute pathogen#infect('d:/users/vitalim/projects/vim/{}')
+execute pathogen#infect('c:/users/netxph/projects/vim/{}')
 
-" windows only
-set guifont=Consolas:h11:cANSI
-behave mswin
-
+set guifont=Consolas:h10:cANSI
 source $VIMRUNTIME/mswin.vim
-behave mswin
 
-au BufRead,BufNewFile *.cshtml setfiletype html
+au GUIEnter * simalt ~x
 
 if &t_Co >= 256 || has("gui_running")
-   colorscheme lucius
+   colorscheme vividchalk
 endif
 
 if &t_Co > 2 || has("gui_running")
@@ -31,7 +27,6 @@ nnoremap ; :
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
-nnoremap <C-l> :nohl<CR><C-l>
 nnoremap <A-[> :bprevious<CR>
 nnoremap <A-]> :bnext<CR>
 
@@ -44,18 +39,19 @@ set hidden
 set nowrap
 set nowrap
 set ruler
-set tabstop=2
+set tabstop=4
 set backspace=indent,eol,start
 
 set smartindent
 set autoindent
 set copyindent
 set number
-set shiftwidth=2
+set shiftwidth=4
 set shiftround
 set showmatch
 set ignorecase
 set smartcase
+set expandtab
 
 set smarttab
 
@@ -68,6 +64,7 @@ set title
 set noerrorbells
 
 set guioptions-=T
+set guioptions-=m
 set nobackup
 set noswapfile
 
@@ -75,3 +72,4 @@ set pastetoggle=<F2>
 set mouse=a
 
 filetype plugin indent on
+
