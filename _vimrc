@@ -78,32 +78,38 @@ au GUIEnter * simalt ~x "x
 
 " FuzzyFinder Custom
 
-function! FufSetIgnore()
+"FuzzyFinder should ignore all files in .gitignore
 
-    let ignorefiles = [ $HOME . "/.gitignore", ".gitignore" ]
-    let exclude_vcs = '\.(hg|git|bzr|svn|cvs)'
-    let ignore = '\v\~$'
+let ignorefiles = [ $HOME . "/.gitignore", ".gitignore" ]
+let exclude_vcs = '\.(hg|git|bzr|svn|cvs)'
+let ignore = '\v\~$'
 
-    for ignorefile in ignorefiles
+for ignorefile in ignorefiles
 
-        if filereadable(ignorefile)
-            for line in readfile(ignorefile)
-                if match(line, '^\s*$') == -1 && match(line, '^#') == -1
-                    let line = substitute(line, '^/', '', '')
-                    let line = substitute(line, '\.', '\\.', 'g')
-                    let line = substitute(line, '\*', '.*', 'g')
-                    let ignore .= '|^' . line
-                endif
-            endfor
-        endif
+    if filereadable(ignorefile)
+        for line in readfile(ignorefile)
+            if match(line, '^\s*$') == -1 && match(line, '^#') == -1
+                let line = substitute(line, '^/', '', '')
+                let line = substitute(line, '\.', '\\.', 'g')
+                let line = substitute(line, '\*', '.*', 'g')
+                let line = substitute(line, '\~', '\\~', 'g')
+                let ignore .= '|^' . line
+            endif
+        endfor
+    endif
 
-        let ignore .= '|^' . exclude_vcs
-        let g:fuf_coveragefile_exclude = ignore
-        let g:fuf_file_exclude = ignore
-        let g:fuf_dir_exclude = ignore
+    let ignore .= '|^' . exclude_vcs
 
-    endfor
-endfunction
+    " echo ignore
 
-nmap <leader>f :call FufSetIgnore() <BAR> :FufFile<CR>
-nmap <leader>b :call FufSetIgnore() <BAR> :FufBuffer<CR>
+    let g:fuf_coveragefile_exclude = ignore
+    let g:fuf_file_exclude = ignore
+    let g:fuf_dir_exclude = ignore
+
+endfor
+
+nmap <leader>f :FufFile<CR>
+nmap <leader>b :FufBuffer<CR>
+nmap <leader>r :FufRenewCache<CR>
+
+
