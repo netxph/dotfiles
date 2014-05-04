@@ -1,6 +1,6 @@
 set nocompatible
 
-execute pathogen#infect('d:/users/vitalim/projects/vim/{}')
+execute pathogen#infect('/home/netxph/Projects/vim/{}')
 
 source $VIMRUNTIME/mswin.vim
 behave mswin
@@ -20,6 +20,7 @@ let mapleader=","
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>f :CtrlP<CR>
 
 nnoremap ; :
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
@@ -70,46 +71,4 @@ set pastetoggle=<F2>
 set mouse=a
 
 filetype plugin indent on
-
-" windows only
-set ffs=dos
-set guifont=Consolas:h10:cANSI
-au GUIEnter * simalt ~x "x
-
-" FuzzyFinder Custom
-
-"FuzzyFinder should ignore all files in .gitignore
-
-let ignorefiles = [ $HOME . "/.gitignore", ".gitignore" ]
-let exclude_vcs = '\.(hg|git|bzr|svn|cvs)'
-let ignore = '\v\~$'
-
-for ignorefile in ignorefiles
-
-    if filereadable(ignorefile)
-        for line in readfile(ignorefile)
-            if match(line, '^\s*$') == -1 && match(line, '^#') == -1
-                let line = substitute(line, '^/', '', '')
-                let line = substitute(line, '\.', '\\.', 'g')
-                let line = substitute(line, '\*', '.*', 'g')
-                let line = substitute(line, '\~', '\\~', 'g')
-                let ignore .= '|^' . line
-            endif
-        endfor
-    endif
-
-    let ignore .= '|^' . exclude_vcs
-
-    " echo ignore
-
-    let g:fuf_coveragefile_exclude = ignore
-    let g:fuf_file_exclude = ignore
-    let g:fuf_dir_exclude = ignore
-
-endfor
-
-nmap <leader>f :FufFile<CR>
-nmap <leader>b :FufBuffer<CR>
-nmap <leader>r :FufRenewCache<CR>
-
 
