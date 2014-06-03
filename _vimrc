@@ -5,6 +5,9 @@ execute pathogen#infect('/home/netxph/Projects/vim/{}')
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+" windows only
+" set guifont=Consolas:h10:cANSI
+
 au BufRead,BufNewFile *.cshtml setfiletype html
 
 if &t_Co >= 256 || has("gui_running")
@@ -72,3 +75,8 @@ set mouse=a
 
 filetype plugin indent on
 
+"CTRLP + Ag
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+endif
