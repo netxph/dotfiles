@@ -1,12 +1,13 @@
 set nocompatible
 
-execute pathogen#infect('/home/netxph/Projects/vim/{}')
+execute pathogen#infect('d:/users/vitalim/projects/git/vim/{}')
 
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-" windows only
-" set guifont=Consolas:h10:cANSI
+" Windows
+set guifont=Consolas:h10:cANSI
+au GUIEnter * simalt ~x
 
 au BufRead,BufNewFile *.cshtml setfiletype html
 
@@ -24,6 +25,9 @@ let mapleader=","
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> <leader>f :CtrlP<CR>
+nmap <silent> <leader>. :CtrlPTag<CR>
+nmap <silent> <leader>wu :update<CR>:e ++ff=unix<CR>:setlocal ff=dos<CR>:w<CR>
+nmap <silent> <leader>wd :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR>
 
 nnoremap ; :
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
@@ -32,12 +36,17 @@ nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
 nnoremap <C-l> :nohl<CR><C-l>
 nnoremap <A-[> :bprevious<CR>
 nnoremap <A-]> :bnext<CR>
+nnoremap <silent> <F4> :let @*=expand("%:p")<CR>
 
 nnoremap j gj
 nnoremap k gk
 
 " settings
+setlocal ff=dos
 set hidden
+
+set diffopt+=iwhite
+set diffexpr=""
 
 set nowrap
 set nowrap
@@ -67,16 +76,18 @@ set title
 set noerrorbells
 
 set guioptions-=T
+set guioptions-=m
+set guioptions-=l
+set guioptions-=r
+set guioptions-=b
 set nobackup
 set noswapfile
 
 set pastetoggle=<F2>
 set mouse=a
+set autoread
+set laststatus=2
 
 filetype plugin indent on
-
-"CTRLP + Ag
-if executable("ag")
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-endif
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_match_window = 'min:4,max:10'

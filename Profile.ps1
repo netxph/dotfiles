@@ -43,6 +43,29 @@ function VS11()
     [System.Console]::Title = "Visual Studio 2012 Windows PowerShell"
 }
 
+function VS12()
+{
+    $vs120comntools = (Get-ChildItem env:VS120COMNTOOLS).Value
+    $batchFile = [System.IO.Path]::Combine($vs120comntools, "VsDevCmd.bat")
+    Get-Batchfile $BatchFile
+
+    [System.Console]::Title = "Visual Studio 2013 Windows PowerShell"
+}
+
+function Invoke-SqlLocalDbCmd([string]$Database, [string]$Query)
+{
+    Push-Location
+    Invoke-Sqlcmd -ServerInstance '(localdb)\v11.0' -Database $Database -Query $Query
+    Pop-Location
+}
+
+function Invoke-SqlLocalCmd([string]$Database, [string]$Query)
+{
+    Push-Location
+    Invoke-Sqlcmd -Database $Database -Query $Query
+    Pop-Location
+}
+
 #
 # Add redshells
 #
@@ -57,6 +80,8 @@ set-alias auto Invoke-Script
 set-alias adds Add-Script
 set-alias gets Get-Scripts
 set-alias dels Remove-Script
+set-alias sqllocaldb Invoke-SqlLocalDbCmd
+set-alias sqllocal Invoke-SqlLocalCmd
 # set-alias copy-f Write-Clipboard
 # set-alias paste-f Read-Clipboard
 
@@ -69,10 +94,10 @@ $env:HOMEPATH = '\users\vitalim\'
 # set path
 $env:Path += ';D:\users\vitalim\shell'
 
-"Visual Studio 2008 Windows PowerShell"
+"Visual Studio 2013 Windows PowerShell"
 "Powershell Environment by Marc Vitalis"
 ""
 
-VS11
+VS12
 set-location "d:\users\vitalim"
 (get-psprovider 'FileSystem').Home = "d:\users\vitalim"
