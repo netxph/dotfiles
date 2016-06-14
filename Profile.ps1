@@ -7,7 +7,6 @@ function prompt
    return "$ "
 }
 
-
 function Get-Batchfile ($file) {
     $cmd = "`"$file`" & set"
     cmd /c $cmd | Foreach-Object {
@@ -52,6 +51,15 @@ function VS12()
     [System.Console]::Title = "Visual Studio 2013 Windows PowerShell"
 }
 
+function VS15()
+{
+    $vs140comntools = (Get-ChildItem env:VS140COMNTOOLS).Value
+    $batchFile = [System.IO.Path]::Combine($vs140comntools, "VsDevCmd.bat")
+    Get-Batchfile $BatchFile
+
+    [System.Console]::Title = "Visual Studio 2015 Windows PowerShell"
+}
+
 function Invoke-SqlLocalDbCmd([string]$Database, [string]$Query)
 {
     Push-Location
@@ -69,7 +77,7 @@ function Invoke-SqlLocalCmd([string]$Database, [string]$Query)
 #
 # Add redshells
 #
-
+Import-Module pscx -arg D:\Users\vitalim\Documents\WindowsPowerShell\Pscx.UserPreferences.ps1
 import-module RedShells
 
 set-alias go Set-Workspace
@@ -94,10 +102,10 @@ $env:HOMEPATH = '\users\vitalim\'
 # set path
 $env:Path += ';D:\users\vitalim\shell'
 
-"Visual Studio 2013 Windows PowerShell"
+"Visual Studio 2015 Windows PowerShell"
 "Powershell Environment by Marc Vitalis"
 ""
 
-VS12
+VS15
 set-location "d:\users\vitalim"
 (get-psprovider 'FileSystem').Home = "d:\users\vitalim"
