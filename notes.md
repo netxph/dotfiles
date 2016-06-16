@@ -8,3 +8,28 @@
 - https://github.com/craigemery/vim-autotag
 - https://github.com/tpope/vim-fugitive
 - https://github.com/tpope/vim-vividchalk
+
+
+ag.vim              
+ctrlp.vim           
+dart-vim-plugin     
+emmet-vim           
+mayansmoke          
+nerdcommenter       
+nerdtree            
+supertab            
+syntastic           
+tabular             
+tagbar              
+taglist.vim         
+ultisnips           
+vim-airline         
+vim-colors-solarized
+vim-commentary      
+vim-cucumber        
+vim-dispatch        
+vim-fugitive        
+vim-gitgutter       
+vim-snippets        
+vim-vividchalk      
+Wombat              
