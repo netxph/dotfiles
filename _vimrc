@@ -1,6 +1,7 @@
+let $MYVIMRC='C:/Users/vitalism/Projects/git/dotfiles/_vimrc'
 set nocompatible
 
-execute pathogen#infect('d:/users/vitalim/projects/git/vim/{}')
+execute pathogen#infect('c:/users/vitalism/projects/git/vim/{}')
 
 source $VIMRUNTIME/mswin.vim
 behave mswin
@@ -94,6 +95,8 @@ set smartcase
 
 set smarttab
 
+set notagrelative
+
 set hlsearch
 set incsearch
 
@@ -123,9 +126,24 @@ set makeprg=msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ /clp:Error
 "set makeprg=msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true
 
 filetype plugin indent on 
+
+ "" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag -l -i --nocolor -g "" %s'
+
+  " " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-let g:ctrlp_user_command = 'ag %s -l -i --nocolor -g "" --ignore=*.xml'
 let g:ctrlp_match_window = 'min:4,max:10,results:30'
+let g:ctrlp_working_path_mode = '0'
 
 let html_number_lines = 0
 let html_no_pre = 1
