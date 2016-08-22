@@ -157,8 +157,16 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir = "C:/Users/vitalism/Projects/git/dotfiles/snippets"
+let g:UltiSnipsSnippetDirectories=["C:/Users/vitalism/Projects/git/dotfiles/snippets"]
+
 "autocmd BufWritePost *.cs
       "\ if filereadable('tags') |
       "\     call system('ctags -a '.expand('%')) |
       "\ endif
-
