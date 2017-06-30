@@ -1,7 +1,7 @@
-let $MYVIMRC='C:/Users/vitalism/Projects/git/dotfiles/_vimrc'
+let $MYVIMRC='C:\\Users\\vitalism\\Projects\\dotfiles\\_vimrc'
 set nocompatible
 
-execute pathogen#infect('c:/users/vitalism/projects/git/vim/{}')
+execute pathogen#infect('c:/users/vitalism/projects/vim/{}')
 
 source $VIMRUNTIME/mswin.vim
 behave mswin
@@ -47,6 +47,7 @@ nmap <silent> <leader>wu :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR>
 nmap <silent> <leader>wc :1,1000bd<CR>
 nmap <silent> <leader>q :cope<CR>
 nmap <silent> <leader>qq :ccl<CR>
+nmap <silent> <leader>b : make \| cw<CR>
 
 nnoremap ; :
 nnoremap <C-S-B> :Make!<CR>
@@ -127,23 +128,26 @@ set makeprg=msbuild\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ /clp:Error
 
 filetype plugin indent on 
 
- "" The Silver Searcher
 if executable('ag')
-  " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag -l -i --nocolor -g "" %s'
 
-  " " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  let g:ctrlp_use_caching = 1
 
   let g:ackprg = 'ag --vimgrep'
-endif
+
+  "nnoremap <silent> t :CtrlP<cr>
+
+  "let g:ctrlp_match_window = 'bottom,order:ttb'
+  let g:ctrlp_switch_buffer = 0
+  "let g:ctrlp_working_path_mode = 'ra'
+  "let g:ctrlp_use_caching = 0
+  "let g:ctrlp_user_command = ['ag %s --files-with-matches -g ""']
+  "let g:ctrlp_user_command += ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+endif 
 
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-let g:ctrlp_match_window = 'min:4,max:10,results:30'
-let g:ctrlp_working_path_mode = '0'
 
 let html_number_lines = 0
 let html_no_pre = 1
@@ -170,3 +174,5 @@ let g:UltiSnipsSnippetDirectories=["C:/Users/vitalism/Projects/git/dotfiles/snip
       "\ if filereadable('tags') |
       "\     call system('ctags -a '.expand('%')) |
       "\ endif
+
+let g:easytags_ctags_version="5.8"
