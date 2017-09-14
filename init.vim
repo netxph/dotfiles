@@ -11,8 +11,11 @@ call plug#begin('~\AppData\Local\nvim\plugged')
 
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/neco-syntax'
+Plug 'mileszs/ack.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'ervandew/supertab'
+Plug 'fatih/vim-go'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
@@ -22,6 +25,7 @@ call plug#end()
 let mapleader=","
 
 nnoremap ; :
+nnoremap <silent> <F4> :let @*=expand("%:p")<CR>
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -44,6 +48,11 @@ set autowriteall
 
 syntax enable
 filetype plugin indent on
+
+au BufNewFile,BufRead *.cake setlocal ft=cs
+au BufNewFile,BufRead *.csx setlocal ft=cs
+
+set tags=.git/tags
 
 set hidden
 set diffopt+=iwhite
@@ -68,3 +77,33 @@ set noswapfile
 set mouse=a
 set autoread
 set laststatus=2
+set notagrelative
+set hlsearch
+set incsearch
+
+"Ack/CtrlP
+"=========
+
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag -l -i --nocolor -g "" %s'
+  let g:ctrlp_use_caching = 1
+  let g:ackprg = 'ag --vimgrep'
+  let g:ctrlp_switch_buffer = 0
+endif 
+
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+
+nmap <silent> <leader>f :CtrlP<CR>
+nmap <silent> <leader>. :CtrlPTag<CR>
+
+"UltiSnips
+"=========
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir = "C:/Users/vitalism/Projects/git/dotfiles/snippets"
+let g:UltiSnipsSnippetDirectories=["C:/Users/vitalism/Projects/git/dotfiles/snippets"]
+
