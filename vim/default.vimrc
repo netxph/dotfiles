@@ -1,8 +1,9 @@
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-let g:python3_host_prog='c:\Python36\'
-let g:python_host_prog='c:\Python27\'
+let g:python3_host_prog='c:\python3\'
+let g:python_host_prog='c:\python\'
+let g:ruby_host_prog='c:\ruby\bin\neovim-ruby-host'
 
 "plugins
 "=======
@@ -16,6 +17,20 @@ Plug 'kien/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'pangloss/vim-javascript'
+Plug 'easymotion/vim-easymotion'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-repeat'
+Plug 'plasticboy/vim-markdown'
+Plug 'pprovost/vim-ps1'
 
 call plug#end()
 
@@ -97,13 +112,5 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 nmap <silent> <leader>f :CtrlP<CR>
 nmap <silent> <leader>. :CtrlPTag<CR>
 
-"UltiSnips
-"=========
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir = "C:/Users/vitalism/Projects/git/dotfiles/snippets"
-let g:UltiSnipsSnippetDirectories=["C:/Users/vitalism/Projects/git/dotfiles/snippets"]
 

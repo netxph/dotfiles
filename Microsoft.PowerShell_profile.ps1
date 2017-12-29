@@ -60,6 +60,16 @@ function VS15()
     [System.Console]::Title = "Visual Studio 2015 Windows PowerShell"
 }
 
+function VS17()
+{
+    $vs140comntools = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\"
+    $batchFile = [System.IO.Path]::Combine($vs140comntools, "VsDevCmd.bat")
+    Get-Batchfile $BatchFile
+
+    [System.Console]::Title = "Visual Studio 2017 Windows PowerShell"
+}
+
+
 function Invoke-SqlLocalDbCmd([string]$Database, [string]$Query)
 {
     Push-Location
@@ -109,38 +119,33 @@ function Test-Port($hostname, $port)
     Write-Host $msg
 }
 
+$nca = "http://tfs-prod-pc:8080/tfs/primarycollection"
+
 #
 # Add redshells
 #
 # Import-Module pscx -arg D:\Users\vitalim\Documents\WindowsPowerShell\Pscx.UserPreferences.ps1
-import-module RedShells
+# import-module RedShells
 
-set-alias go Set-Workspace
-set-alias addw Add-Workspace
-set-alias getw Get-Workspaces
-set-alias delw Remove-Workspace
-set-alias auto Invoke-Script
-set-alias adds Add-Script
-set-alias gets Get-Scripts
-set-alias dels Remove-Script
-set-alias sqllocaldb Invoke-SqlLocalDbCmd
-set-alias sqllocal Invoke-SqlLocalCmd
+# set-alias go Set-Workspace
+# set-alias addw Add-Workspace
+# set-alias getw Get-Workspaces
+# set-alias delw Remove-Workspace
+# set-alias auto Invoke-Script
+# set-alias adds Add-Script
+# set-alias gets Get-Scripts
+# set-alias dels Remove-Script
+# set-alias sqllocaldb Invoke-SqlLocalDbCmd
+# set-alias sqllocal Invoke-SqlLocalCmd
 # set-alias copy-f Write-Clipboard
 # set-alias paste-f Read-Clipboard
 
 # import-module sqlps -disablenamechecking
 
-# set home
-$env:HOMEDRIVE = 'c:'
-$env:HOMEPATH = '\users\vitalism\'
-
-# set path
-$env:Path += ';c:\users\vitalism\shell'
-
-"Visual Studio 2015 Windows PowerShell"
+"Visual Studio 2017 Windows PowerShell"
 "Powershell Environment by Marc Vitalis"
 ""
 
-VS15
+VS17
 set-location "c:\users\vitalism"
-(get-psprovider 'FileSystem').Home = "c:\users\vitalism"
+
