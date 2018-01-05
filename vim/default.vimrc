@@ -1,9 +1,9 @@
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-let g:python3_host_prog='c:\python3\'
-let g:python_host_prog='c:\python\'
-let g:ruby_host_prog='c:\ruby\bin\neovim-ruby-host'
+let g:python3_host_prog='c:\python3\python.exe'
+let g:python_host_prog='c:\python\python.exe'
+let g:ruby_host_prog='c:\ruby\bin\neovim-ruby-host.bat'
 
 "plugins
 "=======
@@ -14,7 +14,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -31,6 +30,12 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 Plug 'plasticboy/vim-markdown'
 Plug 'pprovost/vim-ps1'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ervandew/supertab'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+
 
 call plug#end()
 
@@ -44,6 +49,17 @@ nnoremap <silent> <F4> :let @*=expand("%:p")<CR>
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+
+"window
+"======
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
 
 "display
 "=======
@@ -63,9 +79,11 @@ set autowriteall
 
 syntax enable
 filetype plugin indent on
+set encoding=utf-8
 
 au BufNewFile,BufRead *.cake setlocal ft=cs
 au BufNewFile,BufRead *.csx setlocal ft=cs
+au FileType javascript setlocal sw=2 sts=2
 
 set tags=.git/tags
 
@@ -112,5 +130,21 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 nmap <silent> <leader>f :CtrlP<CR>
 nmap <silent> <leader>. :CtrlPTag<CR>
 
+"Deoplete
+"========
+let g:deoplete#enable_at_startup = 1
 
+"vim-markdown
+"============
+let g:vim_markdown_folding_disabled = 1
+
+"UltiSnips
+"=========
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"deoplete
+"========
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
