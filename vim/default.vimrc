@@ -30,7 +30,6 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 Plug 'plasticboy/vim-markdown'
 Plug 'pprovost/vim-ps1'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 Plug 'sirver/ultisnips'
@@ -143,8 +142,14 @@ let g:vim_markdown_folding_disabled = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"let g:UltiSnipsSnippetDirectories = ['~/Projects/dotfiles/vim/snippets']
 
 "deoplete
 "========
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
+"gutentags
+"=========
+
+let g:gutentags_cache_dir="./.git/"
