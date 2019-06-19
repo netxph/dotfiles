@@ -17,6 +17,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'w0rp/ale'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'roxma/vim-hug-neovim-rpc'
 
 call plug#end()
 
