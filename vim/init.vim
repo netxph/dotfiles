@@ -1,28 +1,24 @@
 "plugins
 "=======
 
-call plug#begin('~/.local/vim/plugged')
-Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'easymotion/vim-easymotion'
-Plug 'valloric/youcompleteme'
-Plug 'pangloss/vim-javascript'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'haishanh/night-owl.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
-"display
-"=======
+"appearance
+"==========
 
-colorscheme base16-default-dark
+colorscheme night-owl
+let g:lightline = { 'colorscheme': 'nightowl' }
+
 set termguicolors
 set ruler
 set relativenumber
@@ -31,22 +27,30 @@ set title
 set visualbell
 set autowriteall
 
+
 "editor
 "======
 
 syntax enable
+syntax on
 filetype plugin indent on
 set encoding=utf-8
 
-let mapleader=","
+runtime mswin.vim
+
+let mapleader=','
 
 nnoremap ; :
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nmap <silent> <leader>t :FZF<CR>
+nmap <silent> <leader>g :GFiles<CR>
+nmap <silent> <leader>b :Buffers<CR>
+nmap <silent> <leader>f :Rg! 
+
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
 
 set splitbelow
 set splitright
@@ -77,55 +81,16 @@ set notagrelative
 set hlsearch
 set incsearch
 
-autocmd Filetype typescript set sw=2
-autocmd Filetype typescript set ts=2
-autocmd Filetype typescriptreact set sw=2
-autocmd Filetype typescriptreact set ts=2
-
-set tags=.git/tags
-
-augroup Markdown
-  autocmd!
-  autocmd FileType markdown set wrap
-augroup END
-
-"vim-airline
-"===========
-let g:airline_powerline_fonts=0
-
-"vim-airline-themes
-"==================
-let g:airline_solarized_bg='dark'
-
-"gutentags
-"=========
-let g:gutentags_cache_dir="./.git/"
-
-"ctrl-p
+"python
 "======
-nnoremap <Leader>t :CtrlP<CR>
-nnoremap <Leader>. :CtrlPTag<CR>
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
-"nerdtree
-"========
-nnoremap <Leader>` :NERDTreeToggle<CR>
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore = []
-let g:NERDTreeStatusline = ''
+au BufNewFile,BufRead *.py
+    \ set expandtab       |" replace tabs with spaces
+    \ set autoindent      |" copy indent when starting a new line
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
 
-"easymotion
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-"terminal
-set splitright
-set splitbelow
-tnoremap <Esc> <C-\><C-n>
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-function! OpenTerminal()
-  split term://bash
-  resize 10
-endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_linters = {'python': ['pylint', 'flake8', 'yapf']}
+let g:coc_global_extensions=[ 'coc-omnisharp' ]
