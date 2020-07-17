@@ -13,6 +13,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tomtom/tcomment_vim'
 Plug 'justinmk/vim-sneak'
+Plug 'caenrique/nvim-toggle-terminal'
 
 call plug#end()
 
@@ -50,6 +51,8 @@ nmap <silent> <leader>t :FZF<CR>
 nmap <silent> <leader>g :GFiles<CR>
 nmap <silent> <leader>b :Buffers<CR>
 nmap <silent> <leader>f :Rg! 
+nnoremap <silent> <C-q> :ToggleTerminal<CR>
+tnoremap <silent> <C-q> <C-\><C-n>:ToggleTerminal<CR>
 
 set splitbelow
 set splitright
