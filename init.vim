@@ -30,6 +30,7 @@ call plug#end()
 colorscheme gruvbox
 highlight Normal guibg=none
 
+set background=dark
 set termguicolors
 set ruler
 set relativenumber
@@ -41,6 +42,8 @@ set autowriteall
 "mappings
 "========
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 let mapleader=','
 nnoremap ; :
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -48,6 +51,10 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> <leader>p :FZF<CR>
 nmap <silent> <leader>b :Buffer<CR>
 nmap <silent> <leader>t :NvimTreeToggle<CR>
+nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> <leader>r <Plug>(coc-references)
+nmap <silent> <leader>j <Plug>(coc-implementation)
+nmap <silent> <leader>= :Prettier<CR>
 nnoremap <silent> <C-p> <cmd>Telescope find_files<cr>
 
 "editor
@@ -142,7 +149,7 @@ let g:lightline = {
 	\     'lineinfo': ' %3l:%-2v',
 	\   },
   \   'component_function': {
-  \     'gitbranch': 'fugitive#head',
+  \     'gitbranch': 'fugitive#head'
   \   }
   \ }
 
@@ -161,3 +168,19 @@ let g:nvim_tree_show_icons = {
     \ 'folders': 1,
     \ 'files': 1,
     \ }
+
+"coc
+"===
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
