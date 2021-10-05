@@ -1,3 +1,0 @@
-#!/bin/sh
-echo "Updating tags..."
-ctags -f .git/tags --tag-relative=no --recurse=yes 
