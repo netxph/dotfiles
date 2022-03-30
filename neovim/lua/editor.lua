@@ -38,7 +38,6 @@ o.scrolloff = 8
 o.cmdheight = 2
 o.clipboard = 'unnamedplus'
 o.updatetime = 300
-o.timeoutlen = 500
 o.showtabline = 2
 o.showmode = false
 o.tabstop = 4

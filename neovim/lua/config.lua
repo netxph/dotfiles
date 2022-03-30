@@ -34,3 +34,21 @@ require'lspconfig'.omnisharp.setup {
   end,
   cmd = { "omnisharp", "--languageserver" , "--hostPID", tostring(pid) },
 }
+
+local wk = require('which-key')
+
+wk.register({
+  p = {
+    name = "Find files...",
+  },
+}, { prefix = "<leader>" })
+
+wk.register({
+  g = {
+    name = "Goto",
+	r = { "References" },
+	d = { "Definition" }
+  },
+}, { prefix = "<leader>" })
+
+wk.setup()
