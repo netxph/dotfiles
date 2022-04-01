@@ -1,8 +1,11 @@
 -- nvim-treesitter
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
-
   sync_install = false,
+  highlight = {
+	  enable = true,
+	  additional_vim_regex_highlighting = true
+  }
 }
 
 -- lualine
@@ -52,3 +55,5 @@ wk.register({
 }, { prefix = "<leader>" })
 
 wk.setup()
+
+require('hop').setup()

@@ -19,4 +19,5 @@ return require('packer').startup(function()
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'folke/which-key.nvim'
+	use 'phaazon/hop.nvim'
 end)
