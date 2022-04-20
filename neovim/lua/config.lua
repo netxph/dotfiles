@@ -42,7 +42,7 @@ local wk = require('which-key')
 
 wk.register({
   p = {
-    name = "Find files...",
+    name = "Open",
   },
 }, { prefix = "<leader>" })
 
@@ -51,6 +51,12 @@ wk.register({
     name = "Goto",
 	r = { "References" },
 	d = { "Definition" }
+  },
+  f = {
+    name = "Find",
+	g = { "Grep" },
+	b = { "Buffers" },
+	h = { "Help" }
   },
 }, { prefix = "<leader>" })
 
