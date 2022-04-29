@@ -66,4 +66,24 @@ require('hop').setup()
 
 require('Comment').setup()
 
-require('navigator').setup()
+require('navigator').setup({
+	lsp = {
+		code_lens_action = {
+			enable = false 
+		},
+		code_action = {
+			virtual_text = false
+		}
+	}
+})
+
+vim.notify = function(msg, log_level, _opts)
+    if msg:match("exit code") then
+        return
+    end
+    if log_level == vim.log.levels.ERROR then
+        vim.api.nvim_err_writeln(msg)
+    else
+        vim.api.nvim_echo({{msg}}, true, {})
+    end
+end
