@@ -1,0 +1,19 @@
+[credential]
+	helper = manager-core
+[credential "helperselector"]
+	selected = manager-core
+
+[merge]
+	tool = nvimdiff
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$BASE\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\"
+
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"
+[alias]
+	linelog = log --pretty=format:\"%h - %an, %ar : %s\"
+	graphlog = log --pretty=format:\"%h %s\" --graph
+[init]
+	defaultBranch = main
