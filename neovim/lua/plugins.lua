@@ -25,6 +25,6 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'folke/which-key.nvim'
 	use 'phaazon/hop.nvim'
-	use 'github/copilot.vim'
 	use 'numToStr/Comment.nvim'
+	use 'glepnir/dashboard-nvim'
 end)

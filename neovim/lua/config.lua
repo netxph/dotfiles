@@ -58,6 +58,11 @@ wk.register({
 		b = { "Buffers" },
 		h = { "Help" }
 	},
+	v = {
+		name = "Configure",
+		e = { "Open" },
+		s = { "Apply" }
+	}
 }, { prefix = "<leader>" })
 
 wk.setup()
@@ -105,5 +110,16 @@ function watch_file(fname)
 	vim.api.nvim_command(
 	"command! -nargs=1 Watch call luaeval('watch_file(_A)', expand('<args>'))")
 
-vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+local db = require('dashboard')
+
+db.custom_center = {
+      {icon = '  ',
+      desc = 'Find  File                              ',
+      action = 'Telescope find_files find_command=rg,--hidden,--files',
+      },
+      {icon = '  ',
+      desc = 'Find  word                              ',
+      action = 'Telescope live_grep',
+      }
+    }
