@@ -112,11 +112,22 @@ function watch_file(fname)
 
 
 local db = require('dashboard')
-
+db.custom_header = {
+[[                                                         ]],
+[[                                                         ]],
+[[  ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗ ]],
+[[  ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║ ]],
+[[  ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║ ]],
+[[  ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║ ]],
+[[  ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║ ]],
+[[  ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ]],
+[[                                                         ]],
+[[                                                         ]]
+}
 db.custom_center = {
       {icon = '  ',
       desc = 'Find  File                              ',
-      action = 'Telescope find_files find_command=rg,--hidden,--files',
+      action = 'Telescope find_files',
       },
       {icon = '  ',
       desc = 'Find  word                              ',
