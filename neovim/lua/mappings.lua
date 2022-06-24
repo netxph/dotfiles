@@ -14,5 +14,7 @@ map('n', '<leader>p', [[<cmd>lua require('telescope.builtin').find_files({ find_
 map('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], options)
 map('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], options)
 map('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], options)
+map('n', '<leader>e', [[<cmd>Neotree toggle<CR>]], options)
+map('n', '<leader>o', [[<cmd>Neotree focus<CR>]], options)
 
 map('n', 'f', [[<cmd>lua require('hop').hint_words()<cr>]], options)
