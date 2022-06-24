@@ -18,7 +18,6 @@ return require('packer').startup(function()
 		requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
 	}
 
-	use 'SmiteshP/nvim-gps'
 	use 'lewis6991/gitsigns.nvim'
 	use 'wbthomason/packer.nvim'
 	use 'gruvbox-community/gruvbox'
