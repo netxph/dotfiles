@@ -8,7 +8,9 @@ require'nvim-treesitter.configs'.setup {
 	}
 }
 
-require('feline').setup()
+require('lualine').setup {
+	options = { theme = 'gruvbox-material' }
+}
 
 local cmp = require 'cmp'
 cmp.setup {
@@ -128,3 +130,5 @@ db.custom_center = {
       action = 'Telescope live_grep',
       }
     }
+
+require("bufferline").setup()

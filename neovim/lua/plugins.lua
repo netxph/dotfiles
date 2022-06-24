@@ -10,7 +10,7 @@ return require('packer').startup(function()
 		run = ':TSUpdate'
 	}
 	use {
-		'feline-nvim/feline.nvim',
+		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
 	use {
@@ -18,9 +18,14 @@ return require('packer').startup(function()
 		requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
 	}
 
+	use {
+		'akinsho/bufferline.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons' }
+ 	}
+
 	use 'lewis6991/gitsigns.nvim'
 	use 'wbthomason/packer.nvim'
-	use 'gruvbox-community/gruvbox'
+	use 'ellisonleao/gruvbox.nvim'
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
