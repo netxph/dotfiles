@@ -5,17 +5,22 @@ return require('packer').startup(function()
 		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	}
+
+	use {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
+
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
+
 	use {
 		'ray-x/navigator.lua', 
-		requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
+	 	requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
 	}
 
 	use {
