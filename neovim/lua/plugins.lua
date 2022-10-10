@@ -11,8 +11,6 @@ return require('packer').startup(function()
 		run = ':TSUpdate'
 	}
 
-	use {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
-
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
