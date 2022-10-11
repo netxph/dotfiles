@@ -3,7 +3,12 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
 	use {
 		'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		requires = 'nvim-lua/plenary.nvim'
+	}
+
+	use {
+		'folke/todo-comments.nvim',
+		requires = 'nvim-lua/plenary.nvim'
 	}
 
 	use {
