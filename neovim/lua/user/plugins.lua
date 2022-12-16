@@ -65,12 +65,12 @@ return packer.startup(function(use)
   use { "ellisonleao/gruvbox.nvim" }
 
   -- cmp plugins
-  use { "hrsh7th/nvim-cmp"} -- The completion plugin
-  use { "hrsh7th/cmp-buffer"} -- buffer completions
-  use { "hrsh7th/cmp-path"} -- path completions
-  use { "saadparwaiz1/cmp_luasnip"} -- snippet completions
-  use { "hrsh7th/cmp-nvim-lsp"}
-  use { "hrsh7th/cmp-nvim-lua"}
+  use { "hrsh7th/nvim-cmp" } -- The completion plugin
+  use { "hrsh7th/cmp-buffer" } -- buffer completions
+  use { "hrsh7th/cmp-path" } -- path completions
+  use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
+  use { "hrsh7th/cmp-nvim-lsp" }
+  use { "hrsh7th/cmp-nvim-lua" }
 
   -- snippets
   use { "L3MON4D3/LuaSnip" } --snippet engine
@@ -79,9 +79,9 @@ return packer.startup(function(use)
   -- LSP
   use { "neovim/nvim-lspconfig" } -- enable LSP
   use { "williamboman/mason.nvim" }
-  use { "williamboman/mason-lspconfig.nvim"}
-  use { "jose-elias-alvarez/null-ls.nvim"} -- for formatters and linters
-  use { "RRethy/vim-illuminate"}
+  use { "williamboman/mason-lspconfig.nvim" }
+  use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
+  use { "RRethy/vim-illuminate" }
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim" }
