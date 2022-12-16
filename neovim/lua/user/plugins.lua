@@ -60,9 +60,9 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim" }
 
   -- Colorschemes
-  use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
-  use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
-  use { "ellisonleao/gruvbox.nvim", commit = "c64ec557672c9c8ecc71a438533525482021377f" }
+  use { "folke/tokyonight.nvim" }
+  use { "lunarvim/darkplus.nvim" }
+  use { "ellisonleao/gruvbox.nvim" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" } -- The completion plugin
@@ -73,11 +73,10 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
 
   -- snippets
-  use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
-  use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
+  use { "L3MON4D3/LuaSnip" } --snippet engine
+  use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
 
   -- LSP
-  -- use { "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
   use { "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" } -- enable LSP
   use { "williamboman/mason.nvim", commit = "bfc5997e52fe9e20642704da050c415ea1d4775f"}
   use { "williamboman/mason-lspconfig.nvim", commit = "0eb7cfefbd3a87308c1875c05c3f3abac22d367c" }
