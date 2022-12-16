@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\netxph\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
-  ["DAPInstall.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\netxph\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\DAPInstall.nvim",
-    url = "https://github.com/ravenxrz/DAPInstall.nvim"
-  },
   LuaSnip = {
     loaded = true,
     path = "C:\\Users\\netxph\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
