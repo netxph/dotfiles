@@ -58,6 +58,8 @@ return packer.startup(function(use)
   use { "ahmedkhalf/project.nvim" }
   use { "lewis6991/impatient.nvim" }
   use { "goolord/alpha-nvim" }
+  use { "folke/todo-comments.nvim" }
+  use { "ggandor/leap.nvim" }
 
   -- Colorschemes
   use { "folke/tokyonight.nvim" }
