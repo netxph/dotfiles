@@ -61,6 +61,7 @@ function M.config()
     "jsonls",
     "yamlls",
     "omnisharp",
+    "gopls",
   }
 
   for _, server in pairs(servers) do

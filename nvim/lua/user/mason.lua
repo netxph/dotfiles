@@ -33,6 +33,7 @@ local servers =  {
   "jsonls",
   "yamlls",
   "omnisharp",
+  "gopls",
 }
 
 function M.config()
