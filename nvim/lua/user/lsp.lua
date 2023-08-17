@@ -61,6 +61,7 @@ function M.config()
     "jsonls",
     "yamlls",
     "omnisharp",
+    "dockerls",
     "gopls",
   }
 

@@ -33,6 +33,7 @@ local servers =  {
   "jsonls",
   "yamlls",
   "omnisharp",
+  "dockerls",
   "gopls",
 }
 
