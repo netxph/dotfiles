@@ -1,0 +1,39 @@
+# --- General Settings ---
+[window]
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+opacity = 0.95
+blur = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+# --- Font Settings ---
+[font]
+size = 13.0
+
+[font.normal]
+family = "Maple Mono NF"
+style = "Regular"
+
+# Explicitly setting these ensures no fallback to system fonts
+[font.bold]
+family = "Maple Mono NF"
+style = "Bold"
+
+[font.italic]
+family = "Maple Mono NF"
+style = "Italic"
+
+# --- Performance & Shell ---
+[terminal.shell]
+# Ensure 'pwsh' is in your Windows PATH
+program = "pwsh"
+args = ["-NoLogo"]
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
