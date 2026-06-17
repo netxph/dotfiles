@@ -33,5 +33,5 @@ function Start-Zellij {
     
     # Use variable from secrets or fallback to default
     $layoutBase = if ($null -ne $DOTFILES_PATH) { $DOTFILES_PATH } else { "$HOME/Projects/dotfiles" }
-    zellij --layout "$layoutBase/zellij/base-layout.kdl"
+    zellij --layout "$layoutBase/zellij/base-layout.windows.kdl"
 }
