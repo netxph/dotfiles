@@ -1,0 +1,42 @@
+layout {
+    cwd "$ZELLIJ_CWD"
+    tab name="Work" focus=true hide_floating_panes=true {
+        pane split_direction="vertical" {
+            pane size="80%" {
+                pane command="nvim.exe" size="80%" {
+                    start_suspended true
+                }
+                pane command="pwsh.exe" size="20%" {
+                    start_suspended true
+                }
+            }
+            pane command="pwsh.exe" size="20%" {
+                args "-Command" "pi.ps1"
+                start_suspended true
+            }
+        }
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+    tab name="Notes" hide_floating_panes=true cwd="$ZELLIJ_NOTES_CWD" {
+        pane split_direction="vertical" {
+            pane size="80%" {
+                pane command="nvim.exe" size="80%" {
+                    start_suspended true
+                }
+                pane command="pwsh.exe" size="20%" {
+                    start_suspended true
+                }
+            }
+            pane command="pwsh.exe" size="20%" {
+                args "-Command" "pi.ps1"
+                start_suspended true
+            }
+        }
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+}
+
