@@ -36,7 +36,14 @@ function Start-Zellij {
     zellij --layout "$layoutBase/zellij/base-layout.windows.kdl"
 }
 
-function Ask-Pi ($request) {
+function Ask-Pi {
+    [CmdletBinding()]
+    param(
+        [Parameter(Position = 0, Mandatory = $true)]
+        [string]$Request,
+        [switch]$Force
+    )
+
     # 1. Embed the context directly into the prompt payload
     $contextPayload = @"
 System Instructions:
@@ -48,7 +55,7 @@ Rules:
 - DO NOT provide explanations, introductory text, or conversational fluff.
 - If placeholders are required, format them strictly as <placeholder>.
 
-User Request: $request
+User Request: $Request
 "@
 
     # 2. Fetch the command instantly from Pi
@@ -60,15 +67,20 @@ User Request: $request
         return
     }
 
-    # 3. Display it safely for your review
+    # 3. Always show the command before doing anything
     Write-Host "$command" -ForegroundColor Yellow
+
+    if ($Force) {
+        Invoke-Expression $command
+        return
+    }
 
     # 4. Prompt for execution confirmation
     $choices = [System.Management.Automation.Host.ChoiceDescription[]] @(
         New-Object System.Management.Automation.Host.ChoiceDescription "&Yes", "Execute the command"
         New-Object System.Management.Automation.Host.ChoiceDescription "&No", "Cancel execution"
     )
-    
+
     $decision = $Host.UI.PromptForChoice("Execution Confirmation", "Do you want to run this command?", $choices, 1)
 
     # 5. Execute or abort safely
