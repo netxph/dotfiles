@@ -61,10 +61,7 @@ User Request: $request
     }
 
     # 3. Display it safely for your review
-    Write-Host "`nProposed Command:" -ForegroundColor Cyan
-    Write-Host "----------------" -ForegroundColor Cyan
-    Write-Host "  $command" -ForegroundColor Yellow
-    Write-Host "----------------" -ForegroundColor Cyan
+    Write-Host "$command" -ForegroundColor Yellow
 
     # 4. Prompt for execution confirmation
     $choices = [System.Management.Automation.Host.ChoiceDescription[]] @(
@@ -76,7 +73,6 @@ User Request: $request
 
     # 5. Execute or abort safely
     if ($decision -eq 0) {
-        Write-Host "Running command...`n" -ForegroundColor Green
         Invoke-Expression $command
     } else {
         Write-Host "Operation cancelled." -ForegroundColor DarkGray
