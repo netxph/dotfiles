@@ -23,6 +23,8 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 $env:ZELLIJ_CONFIG_DIR="$HOME/.config/zellij/config"
 $env:ZELLIJ_NOTES_CWD="$HOME/Notes"
 
+$env:VISUAL="nvim"
+
 function Start-Zellij {
     param(
         [Parameter(Position = 0)]
