@@ -1,9 +1,9 @@
 # --- General Settings ---
 [window]
-padding = { x = 5, y = 5 }
+padding = { x = 0, y = 0 }
 dynamic_padding = true
-opacity = 0.95
-blur = true
+opacity = 1.0
+blur = false
 
 [scrolling]
 history = 10000
