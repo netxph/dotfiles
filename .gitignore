@@ -4,3 +4,7 @@ lazy-lock.json
 
 herdr/*.log
 herdr/session.json
+
+powershell/Modules/
+
+terminal/state.json

@@ -4,9 +4,13 @@ if (Test-Path $secretsPath) {
     . $secretsPath
 }
 
-Import-Module gsudoModule
-Import-Module Terminal-Icons
-Import-Module Pester
+foreach ($module in 'gsudoModule', 'Terminal-Icons', 'Pester') {
+    if (-not (Get-Module -ListAvailable -Name $module)) {
+        Install-Module -Name $module -Scope CurrentUser -Force -AllowClobber
+    }
+
+    Import-Module $module
+}
 
 oh-my-posh init pwsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/amro.omp.json | Invoke-Expression
 
