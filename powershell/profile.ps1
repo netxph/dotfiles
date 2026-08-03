@@ -28,6 +28,7 @@ $env:ZELLIJ_CONFIG_DIR="$HOME/.config/zellij/config"
 $env:ZELLIJ_NOTES_CWD="$HOME/Notes"
 
 $env:VISUAL="nvim"
+$env:POWERLINE_NERD_FONTS=1
 
 function Start-Zellij {
     param(

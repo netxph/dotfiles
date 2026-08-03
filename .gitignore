@@ -3,7 +3,10 @@ lazy-lock.json
 .pi/
 
 herdr/*.log
+herdr/*.sock
 herdr/session.json
+herdr/plugins.json
+herdr/plugins/
 
 powershell/Modules/
 
