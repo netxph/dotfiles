@@ -30,6 +30,8 @@ $env:ZELLIJ_NOTES_CWD="$HOME/Notes"
 $env:VISUAL="nvim"
 $env:POWERLINE_NERD_FONTS=1
 
+. (Join-Path $PSScriptRoot "herdr.ps1")
+
 function Start-Zellij {
     param(
         [Parameter(Position = 0)]
