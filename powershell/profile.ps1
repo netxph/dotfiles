@@ -4,7 +4,7 @@ if (Test-Path $secretsPath) {
     . $secretsPath
 }
 
-foreach ($module in 'gsudoModule', 'Terminal-Icons', 'Pester') {
+foreach ($module in 'gsudoModule', 'Pester') {
     if (-not (Get-Module -ListAvailable -Name $module)) {
         Install-Module -Name $module -Scope CurrentUser -Force -AllowClobber
     }

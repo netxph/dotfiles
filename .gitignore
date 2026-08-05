@@ -5,6 +5,7 @@ lazy-lock.json
 herdr/*.log
 herdr/*.sock
 herdr/session.json
+herdr/release-notes.json
 herdr/plugins.json
 herdr/plugins/
 

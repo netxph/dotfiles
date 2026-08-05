@@ -44,7 +44,7 @@
                 "name": "Command Prompt"
             },
             {
-                "colorScheme": "Catppuccin Mocha",
+                "colorScheme": "Catppuccin Macchiato",
                 "font": 
                 {
                     "face": "Maple Mono NF",
@@ -93,30 +93,56 @@
             }
         ]
     },
-    "schemes": [
+    "schemes": 
+    [
         {
-            "background": "#1E1E2E",
-            "black": "#45475A",
-            "blue": "#89B4FA",
-            "brightBlack": "#585B70",
-            "brightBlue": "#89B4FA",
-            "brightCyan": "#94E2D5",
-            "brightGreen": "#A6E3A1",
-            "brightPurple": "#F5C2E7",
-            "brightRed": "#F38BA8",
-            "brightWhite": "#A6ADC8",
-            "brightYellow": "#F9E2AF",
-            "cursorColor": "#F5E0E6",
-            "cyan": "#94E2D5",
-            "foreground": "#CDD6F4",
-            "green": "#A6E3A1",
-            "name": "Catppuccin Mocha",
-            "purple": "#CBA6F7",
-            "red": "#F38BA8",
-            "selectionBackground": "#585B70",
-            "white": "#BAC2DE",
-            "yellow": "#F9E2AF"
+            "background": "#24273A",
+            "black": "#494D64",
+            "blue": "#8AADF4",
+            "brightBlack": "#5B6078",
+            "brightBlue": "#8AADF4",
+            "brightCyan": "#8BD5CA",
+            "brightGreen": "#A6DA95",
+            "brightPurple": "#F5BDE6",
+            "brightRed": "#ED8796",
+            "brightWhite": "#A5ADCB",
+            "brightYellow": "#EED49F",
+            "cursorColor": "#F4DBD6",
+            "cyan": "#8BD5CA",
+            "foreground": "#CAD3F5",
+            "green": "#A6DA95",
+            "name": "Catppuccin Macchiato",
+            "purple": "#F5BDE6",
+            "red": "#ED8796",
+            "selectionBackground": "#5B6078",
+            "white": "#B8C0E0",
+            "yellow": "#EED49F"
         }
     ],
-    "themes": []
+    "themes": 
+    [
+        {
+            "name": "Catppuccin Macchiato",
+            "tab": 
+            {
+                "background": "#24273AFF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": 
+            {
+                "background": "#1E2030FF",
+                "unfocusedBackground": "#181926FF"
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        }
+    ]
 }

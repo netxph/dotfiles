@@ -4,6 +4,7 @@ onboarding = false
 sidebar_start_collapsed = true
 pane_gaps = false
 host_cursor = "native"
+copy_on_select = true
 
 [theme]
 name = "catppuccin"
@@ -23,3 +24,6 @@ channel = "preview"
 
 [experimental]
 kitty_graphics = true
+
+[session]
+resume_agents_on_restore = false
