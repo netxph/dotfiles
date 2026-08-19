@@ -1,0 +1,25 @@
+[layout]
+focus = "editor"
+
+[tabs.dev]
+label = "{workspace}"
+
+[[tabs.dev.panes]]
+id = "editor"
+title = "nvim"
+command = "nvim"
+
+[[tabs.dev.panes]]
+id = "agent"
+from = "editor"
+title = "pi"
+split = "right"
+ratio = 0.75
+command = "pi"
+
+[[tabs.dev.panes]]
+id = "shell"
+from = "editor"
+title = "shell"
+split = "down"
+ratio = 0.75

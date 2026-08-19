@@ -1,0 +1,16 @@
+lazy-lock.json
+*.bak
+.pi/
+
+herdr/*.log
+herdr/*.sock
+herdr/session.json
+herdr/release-notes.json
+herdr/plugins.json
+herdr/plugins/
+
+powershell/Modules/
+powershell/secrets.ps1
+
+terminal/state.json
+

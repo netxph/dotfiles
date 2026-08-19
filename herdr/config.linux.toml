@@ -1,0 +1,29 @@
+onboarding = false
+
+[ui]
+sidebar_start_collapsed = true
+pane_gaps = false
+host_cursor = "native"
+copy_on_select = true
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[terminal]
+default_shell = "fish"
+
+[keys]
+focus_pane_left = ["prefix+h", "alt+h"]
+focus_pane_down = ["prefix+j", "alt+j"]
+focus_pane_up = ["prefix+k", "alt+k"]
+focus_pane_right = ["prefix+l", "alt+l"]
+
+[update]
+channel = "preview"
+
+[experimental]
+kitty_graphics = true
+
+[session]
+resume_agents_on_restore = false
