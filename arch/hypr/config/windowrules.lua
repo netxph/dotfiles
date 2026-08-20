@@ -46,6 +46,7 @@ hl.window_rule({
 })
 
 -- Apps
+hl.window_rule({ match = { class = "^com\\.netxph\\.nvim_scratchpad$" }, workspace = "special:nvim silent", float = true, center = true, size = { "monitor_w*0.80", "monitor_h*0.80" } })
 hl.window_rule({ match = { class = "^(.*\\.exe)$", float = true }, monitor = PRIMARY_MONITOR, center = true, fullscreen_state = 0 })
 hl.window_rule({ match = { class = "^(.*[Ll]auncher.*)$" }, float = true, monitor = PRIMARY_MONITOR })
 hl.window_rule({ match = { class = "^(vesktop|discord)$" }, monitor = PRIMARY_MONITOR })
