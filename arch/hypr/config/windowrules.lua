@@ -1,7 +1,7 @@
 -- Window rules wiki https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 
 -- Generic floating position
-hl.window_rule({ match = { float = true }, center = true, persistent_size = true })
+hl.window_rule({ match = { float = true, class = "negative:^com\\.netxph\\.((nvim|pi|yazi|terminal)_scratchpad|keybindings)$" }, center = true, persistent_size = true })
 
 -- Picture-in-Picture
 hl.window_rule({
@@ -46,7 +46,11 @@ hl.window_rule({
 })
 
 -- Apps
-hl.window_rule({ match = { class = "^com\\.netxph\\.nvim_scratchpad$" }, workspace = "special:nvim silent", float = true, center = true, size = { "monitor_w*0.80", "monitor_h*0.80" } })
+hl.window_rule({ match = { class = "^com\\.netxph\\.nvim_scratchpad$" }, workspace = "special:nvim silent", float = true, size = { 512, 768 }, move = "(monitor_w-552) (monitor_h*0.50-384)" })
+hl.window_rule({ match = { class = "^com\\.netxph\\.yazi_scratchpad$" }, workspace = "special:yazi silent", float = true, size = { 512, 768 }, move = "(monitor_w-552) (monitor_h*0.50-384)" })
+hl.window_rule({ match = { class = "^com\\.netxph\\.terminal_scratchpad$" }, workspace = "special:terminal silent", float = true, size = { 512, 768 }, move = "(monitor_w-552) (monitor_h*0.50-384)" })
+hl.window_rule({ match = { class = "^com\\.netxph\\.pi_scratchpad$" }, workspace = "special:pi silent", float = true, size = { 512, 768 }, move = "(monitor_w-552) (monitor_h*0.50-384)" })
+hl.window_rule({ match = { class = "^com\\.netxph\\.keybindings$" }, workspace = "special:keybindings silent", float = true, center = true, size = { 1400, 768 } })
 hl.window_rule({ match = { class = "^(.*\\.exe)$", float = true }, monitor = PRIMARY_MONITOR, center = true, fullscreen_state = 0 })
 hl.window_rule({ match = { class = "^(.*[Ll]auncher.*)$" }, float = true, monitor = PRIMARY_MONITOR })
 hl.window_rule({ match = { class = "^(vesktop|discord)$" }, monitor = PRIMARY_MONITOR })

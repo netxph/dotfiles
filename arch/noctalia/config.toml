@@ -6,7 +6,7 @@ background_opacity = 0.0
 capsule = true
 center = [ "workspaces", "spacer_1", "active_window" ]
 concave_edge_corners = false
-end = [ "media", "spacer_1", "tray", "notifications", "network", "volume", "session" ]
+end = [ "media", "spacer_1", "tray", "notifications", "network", "volume", "keybindings", "session" ]
 margin_edge = 0
 margin_ends = 0
 radius_bottom_left = 12
@@ -84,6 +84,31 @@ settings_show_advanced = true
     shortcut = "5"
     variant = "destructive"
 
+[lockscreen]
+enabled = true
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "clock_main" ]
+
+    [lockscreen_widgets.widget.clock_main]
+    type = "clock"
+    output = "DP-1"
+    cx = 1720.0
+    cy = 720.0
+    placement_width = 3440.0
+    placement_height = 1440.0
+    box_width = 1600.0
+    box_height = 440.0
+
+        [lockscreen_widgets.widget.clock_main.settings]
+        clock_style = "digital"
+        format = "{:%I:%M %p}"
+        center_text = true
+        background = false
+        shadow = true
+
 [system.monitor]
 gpu_poll_seconds = 2
 
@@ -101,6 +126,14 @@ format = "{:%H:%M %A %m/%d/%y}"
 
 [widget.launcher]
 color = "secondary"
+
+[widget.keybindings]
+type = "custom_button"
+glyph = "keyboard"
+tooltip = "Keybindings"
+
+    [widget.keybindings.actions]
+    left = "exec $HOME/.config/noctalia/show-keybindings"
 
 [widget.media]
 hide_when_no_media = true

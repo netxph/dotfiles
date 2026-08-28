@@ -1,0 +1,5 @@
+#!/bin/sh
+hyprctl dispatch 'hl.dsp.workspace.toggle_special("keybindings")' >/dev/null
+if ! hyprctl clients -j | grep -q 'com.netxph.keybindings'; then
+    uwsm app -- ghostty --class=com.netxph.keybindings -e glow -p -w 0 "$HOME/.config/noctalia/keybindings.md" >/dev/null 2>&1 &
+fi
