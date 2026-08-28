@@ -4,7 +4,7 @@ if (Test-Path $secretsPath) {
     . $secretsPath
 }
 
-$modules = 'Pester'
+$modules = @('Pester')
 if (-not $IsLinux) { $modules += 'gsudoModule' }
 
 foreach ($module in $modules) {
