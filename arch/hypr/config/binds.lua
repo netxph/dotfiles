@@ -83,7 +83,7 @@ hl.bind(mainMod .. " + SUPER_L",    hl.dsp.exec_cmd(noctCall .. "panel-toggle la
 hl.bind(mainMod .. " + N",          hl.dsp.workspace.toggle_special("nvim"))
 hl.bind(mainMod .. " + N",          hl.dsp.exec_cmd("hyprctl clients -j | grep -q 'com.netxph.nvim_scratchpad' || (uwsm app -- ghostty --class=com.netxph.nvim_scratchpad -e nvim $HOME/.scratchpad.md &)"))
 hl.bind(mainMod .. " + I",          hl.dsp.workspace.toggle_special("pi"))
-hl.bind(mainMod .. " + I",          hl.dsp.exec_cmd("hyprctl clients -j | grep -q 'com.netxph.pi_scratchpad' || (uwsm app -- ghostty --class=com.netxph.pi_scratchpad -e pi &)"))
+hl.bind(mainMod .. " + I",          hl.dsp.exec_cmd("hyprctl clients -j | grep -q 'com.netxph.pi_scratchpad' || (uwsm app -- ghostty --gtk-single-instance=false --class=com.netxph.pi_scratchpad -e fish -ic 'pi --no-session' &)"))
 hl.bind(mainMod .. " + slash",      hl.dsp.exec_cmd("$HOME/.config/noctalia/show-keybindings"))
 hl.bind(mainMod .. " + period",     hl.dsp.exec_cmd(noctCall .. "panel-toggle launcher /emo"))
 hl.bind(mainMod .. " + L",          hl.dsp.exec_cmd(noctCall .. "session lock"))
