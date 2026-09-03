@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cwd=$(pwd -P)
+label=$(basename "$cwd")
+
+command -v herdr >/dev/null || { echo "herdr-dev: herdr not found in PATH" >&2; exit 1; }
+command -v jq >/dev/null || { echo "herdr-dev: jq not found in PATH" >&2; exit 1; }
+
+root=$(herdr workspace create --cwd "$cwd" --label "$label" --focus | jq -er '.result.root_pane.pane_id')
+herdr pane split "$root" --direction right --ratio 0.75 --cwd "$cwd" --no-focus >/dev/null
+herdr pane split "$root" --direction down --ratio 0.75 --cwd "$cwd" --no-focus >/dev/null
