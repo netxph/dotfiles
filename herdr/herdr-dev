@@ -7,6 +7,11 @@ label=$(basename "$cwd")
 command -v herdr >/dev/null || { echo "herdr-dev: herdr not found in PATH" >&2; exit 1; }
 command -v jq >/dev/null || { echo "herdr-dev: jq not found in PATH" >&2; exit 1; }
 
-root=$(herdr workspace create --cwd "$cwd" --label "$label" --focus | jq -er '.result.root_pane.pane_id')
+workspace=$(herdr workspace create --cwd "$cwd" --label "$label" --focus)
+root=$(jq -er '.result.root_pane.pane_id' <<<"$workspace")
+workspace_id=$(jq -er '.result.root_pane.workspace_id' <<<"$workspace")
 herdr pane split "$root" --direction right --ratio 0.75 --cwd "$cwd" --no-focus >/dev/null
 herdr pane split "$root" --direction down --ratio 0.75 --cwd "$cwd" --no-focus >/dev/null
+
+tab_id=$(herdr tab list | jq -er --arg workspace_id "$workspace_id" '.result.tabs[] | select(.workspace_id == $workspace_id) | .tab_id')
+herdr tab rename "$tab_id" "$label" >/dev/null

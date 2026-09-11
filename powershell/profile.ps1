@@ -15,7 +15,7 @@ foreach ($module in $modules) {
     Import-Module $module
 }
 
-oh-my-posh init pwsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/amro.omp.json | Invoke-Expression
+Invoke-Expression (&starship init powershell)
 
 Set-Alias -Name k -Value kubectl
 Set-Alias -name kc -Value kubecolor
@@ -32,6 +32,11 @@ $env:ZELLIJ_NOTES_CWD="$HOME/Notes"
 
 $env:VISUAL="nvim"
 $env:POWERLINE_NERD_FONTS=1
+
+$dotnetToolsPath = Join-Path $HOME ".dotnet/tools"
+if ($env:PATH -notlike "*$dotnetToolsPath*") {
+    $env:PATH += "{0}{1}" -f [IO.Path]::PathSeparator, $dotnetToolsPath
+}
 
 . (Join-Path $PSScriptRoot "herdr.ps1")
 
