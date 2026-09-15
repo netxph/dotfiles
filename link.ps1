@@ -46,5 +46,5 @@ Link-Config `
     (Join-Path $env:APPDATA 'alacritty')
 
 Link-Config `
-    (Join-Path $repo 'herdr') `
-    (Join-Path $env:APPDATA 'herdr')
+    (Join-Path $repo 'herdr/config.windows.toml') `
+    (Join-Path $env:APPDATA 'herdr/config.toml')
