@@ -3,7 +3,7 @@ Param(
   [ValidateSet('windows','linux')]
   [string]$Mode = "windows"
 )
-$Repo = "C:\\Users\\netxph\\Projects\\dotfiles\\herdr"
+$Repo = Join-Path (Split-Path $PSScriptRoot -Parent) 'herdr'
 if ($Mode -eq 'windows') {
   $Src = Join-Path $Repo 'config.windows.toml'
   $TargetDir = Join-Path $env:APPDATA 'herdr'

@@ -11,7 +11,7 @@ name = "catppuccin"
 auto_switch = false
 
 [terminal]
-default_shell = "fish"
+default_shell = "bash"
 
 [keys]
 focus_pane_left = ["prefix+h", "alt+h"]

@@ -15,7 +15,11 @@ foreach ($module in $modules) {
     Import-Module $module
 }
 
-Invoke-Expression (&starship init powershell)
+if ($env:OS -eq 'Windows_NT') {
+    oh-my-posh init pwsh | Invoke-Expression
+} else {
+    Invoke-Expression (&starship init powershell)
+}
 
 Set-Alias -Name k -Value kubectl
 Set-Alias -name kc -Value kubecolor
