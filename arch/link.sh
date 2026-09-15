@@ -26,4 +26,5 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 link_config "$repo_root/arch/hypr" "$HOME/.config/hypr"
 link_config "$repo_root/arch/noctalia" "$HOME/.config/noctalia"
+link_config "$repo_root/arch/omarchy/shell.json" "$HOME/.config/omarchy/shell.json"
 link_config "$repo_root/fish" "$HOME/.config/fish"
